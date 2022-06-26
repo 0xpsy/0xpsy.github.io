@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>0xpsy</title>
+    <style>
+    
+     @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:500';
+html,
+body {
+  font-family: 'Roboto Mono', monospace;
+  background: black;
+  height: 100%;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.text {
+  font-weight: 500;
+  font-size: 30px;
+  color: red;
+
+}
+.dud {
+  color: #757575;
+}
+
+    </style>
+</head>
+<body>
+   <div class="container">
+  <div class="text"></div>
+</div> 
+<script src="./js/scramble.js"></script>
+<script>
+    
+    
+const phrases = ['Hello , iam 0xpsy', 'Iam a hacker', 'Iam a pentester','Iam a developer' , 'Iam a gamer' , 'I live in 127.0.0.1' , 'my crime is curiosity !' , '' ];
+const el = document.querySelector('.text');
+const fx = new TextScramble(el);
+let counter = 0;
+
+const next = () => {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(next, 500);
+  });
+  counter = (counter + 1) % phrases.length;
+};
+
+next();
+    </script>
+</body>
+</html>
